@@ -42,15 +42,15 @@ window.onload = async () => {
 
 const updateUI = async () => { 
   const isAuthenticated = await auth0.isAuthenticated();
-
+console.log('isAuthenticated?');
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;
   
   // NEW - add logic to show/hide gated content after authentication
   if (isAuthenticated) {
     document.getElementById("gated-content").classList.remove("hidden");
-    
-    open("https://storages4aicc.blob.core.windows.net/cc-files/select.html?sv=2019-12-12&ss=b&srt=sco&sp=rx&se=2021-10-13T12:58:27Z&st=2020-10-13T04:58:27Z&spr=https&sig=BWkmkGpxLkon9EYXLqDdi1xibK%2FAKs0X264aAfa2ByA%3D", "_blank");
+console.log('isAuthenticated...');    
+    await open("https://storages4aicc.blob.core.windows.net/cc-files/select.html?sv=2019-12-12&ss=b&srt=sco&sp=rx&se=2021-10-13T12:58:27Z&st=2020-10-13T04:58:27Z&spr=https&sig=BWkmkGpxLkon9EYXLqDdi1xibK%2FAKs0X264aAfa2ByA%3D", "_blank");
 
     document.getElementById(
       "ipt-access-token"
