@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>search dialog</title>
+    <meta charset="UTF-8">
+    <style>
+      form.testForm{background-color: #cc0; color: #ff0000; }	
+    </style>
+</head>
+<body>
+	<p><h1>落ち呼情報検索</h1></p>
+        <p>
+    <form calss="testForm" action="https://re-delivery-prod.apigee.net/v1/operations/htmlresp" target="_blank" method="get">
+	<label>電話番号：<input type="text" name="phoneNum" maxlength="16"></label>
+        <input type="submit" value="検索">
+    </form>
+        </p><br>
+<input type="button" value="検索画面を閉じる" onClick="window.close()">
+<script>var gactns = opener.gactn; alert(gactns);</script>
+</body>
+</html>
