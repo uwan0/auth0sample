@@ -11,16 +11,21 @@
 <body>
 <script>
 	var gactns = opener.gactn; /*alert(gactns);*/
-	document.getElementById(
-          "access-token"
-        ).innerHTML = gactns;
+	let btn = document.getElementById("btn");
+	btn.addEventListener('click', function() {
+          document.getElementById(
+            "access-token"
+          ).innerHTML = gactns;
+        }, false);
+
+	
 </script>
 	<p><h1>落ち呼情報検索</h1></p>
         <p>
     <form calss="testForm" action="https://re-delivery-prod.apigee.net/v1/operations/htmlresp" target="_blank" method="get">
-	<label class="hiddens"><pre id="access-token" name="accesstokens"></pre></label>
+	<label class="hiddens"><pre id="access-token" name="accesstokens"></pre></label><br>
 	<label>電話番号：<input type="text" name="phoneNum" maxlength="16"></label>
-        <input type="submit" value="検索">
+        <input id="btn" type="submit" value="検索">
     </form>
         </p><br>
 <input type="button" value="検索画面を閉じる" onClick="window.close()">
