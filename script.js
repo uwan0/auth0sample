@@ -53,7 +53,7 @@ console.log('isAuthenticated?');
     document.getElementById("gated-content").classList.remove("hidden");
 //console.log('isAuthenticated...');    
 //    await open("https://storages4aicc.blob.core.windows.net/cc-files/select.html?sv=2019-12-12&ss=b&srt=sco&sp=rx&se=2021-10-13T12:58:27Z&st=2020-10-13T04:58:27Z&spr=https&sig=BWkmkGpxLkon9EYXLqDdi1xibK%2FAKs0X264aAfa2ByA%3D", "_blank");
-    await window.open("select.html");
+    await window.open("./select.html");
 
     document.getElementById(
       "ipt-access-token"
