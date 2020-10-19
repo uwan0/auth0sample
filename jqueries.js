@@ -3,7 +3,7 @@ $("#sbmbtn").on('click', function (e) {
       headers: {
         "Authorization": "Bearer "+ opener.gactn
       }
-  });
   $("#submitForm").submit();
+  });
 });
 
