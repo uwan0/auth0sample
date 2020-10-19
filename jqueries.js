@@ -4,5 +4,6 @@ $("#sbmbtn").on('click', function (e) {
         "Authorization": "Bearer "+ opener.gactn
       }
   });
+  $("#submitForm").submit();
 });
 
