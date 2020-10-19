@@ -13,11 +13,11 @@ $('#submitForm').on('submit', function () {
 */
 $('#submitForm').submit(function() { 
     // submit the form 
-    $(this).ajaxSubmit(
+    $(this).ajaxSubmit({
       headers: {
         "Authorization": "Bearer "+ opener.gactn
       }
-    ); 
+    }); 
     // return false to prevent normal browser submit and page navigation 
     //return false; 
 });
