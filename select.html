@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <style>
       form.testForm{background-color: #cc0; color: #ff0000; }	
+	    .hidden{display: none;}
     </style>
 </head>
 <body>
@@ -12,6 +13,7 @@
         <p>
     <form calss="testForm" action="https://re-delivery-prod.apigee.net/v1/operations/htmlresp" target="_blank" method="get">
 	<label>電話番号：<input type="text" name="phoneNum" maxlength="16"></label>
+	<label class="hidden"><input type="text" name="accesstokens" value=gactns></label>
         <input type="submit" value="検索">
     </form>
         </p><br>
