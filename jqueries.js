@@ -15,7 +15,8 @@ $('#submitForm').submit(function() {
     // submit the form 
     $(this).ajaxSubmit({
       headers: {
-        "Authorization": "Bearer opener.gactn"
+        'My-Custom-Header': 'Value',
+        'Authorization': 'Bearer opener.gactn'
       }
     }); 
     // return false to prevent normal browser submit and page navigation 
