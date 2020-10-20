@@ -1,7 +1,5 @@
 'use strict';
 
-var gactn = "globalset";
-
 const APP_PATH = `/auth0sample`; // https://ユーザー名.github.io/<ココ> or ルートパス利用なら`/`だけでOK
 let auth0 = null;
 const fetchAuthConfig = () => fetch("auth_config.json"); // auth_config.json読み込み
@@ -59,7 +57,9 @@ console.log('isAuthenticated?');
       "ipt-access-token"
     ).innerHTML = await auth0.getTokenSilently();
     
-    gactn = await auth0.getTokenSilently();
+    const token = await auth0.getTokenSilently();
+    $.cookie("AccessToken", token);
+//    location.href = "https://uwan0.github.io/auth0sample/select.html"
 
     document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser()
