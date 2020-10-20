@@ -37,7 +37,7 @@ $(function () {
         'Authoricate': `Bearer ${ token} `
       },
       dataType: "json",
-      data: {phoneNum: `$("#sbmphone").val()`}
+      data: {phoneNum: $("#sbmphone").val()}
     })
       .done((data, textStatus, jqXHR) => {
         console.log('done', jqXHR.status, data);
