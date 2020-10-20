@@ -51,18 +51,18 @@
     });
 });*/
 	$(function(){
-		    $.ajaxSetup({
+/*		    $.ajaxSetup({
     headers: {
 //        'Authorization': 'Bearer '+opener.gactn
 	    'hoge':'hage'
     }
-});
+});*/
             // sbmbtn button click
             $('#sbmbtn').on('click',function(){
                 $.ajax({
                     type:'get',
                     url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
-                 // headers:{'Authorization':'Bearer '+opener.gactn},
+                  headers:{'x-hoge':'hage'},
                     data:{'phoneNum':$('#sbmphone').val()}
 		})
                 // Ajaxリクエストが成功した時発動
