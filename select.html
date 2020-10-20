@@ -42,7 +42,7 @@
 });*/
 $(document).ready(function() {
     $('#sbmbtn').click(function() {
-	$.ajaxSubmit({
+	$('#sbmForm').ajaxSubmit({
       headers: {
         "Authorization": "Bearer "+ opener.gactn
       }
