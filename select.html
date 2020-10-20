@@ -28,18 +28,46 @@
         <p>
     <form calss="testForm" action="https://re-delivery-prod.apigee.net/v1/operations/htmlresp" id="sbmForm" target="_blank" method="get">
 	<!--input id="access-text" type="text" name="accesstokens"><pre id="access-token" name="accesstokens"></pre><br-->
-	<label>電話番号：<input type="text" name="phoneNum" maxlength="11"></label>
+	<label>電話番号：<input type="text" name="phoneNum" id="sbmphone" maxlength="11"></label>
         <input type="button" id="sbmbtn" value="検索">
     </form>
         </p><br>
 <input type="button" value="検索画面を閉じる" onClick="window.close()">
     <script src="jqueries.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+/*	$(document).ready(function() {
     $('#sbmbtn').click(function() {
         $('#sbmForm').submit();
     });
+});*/
+	$(function(){
+            // sbmbtn button click
+            $('#sbmbtn').on('click',function(){
+                $.ajax({
+                    url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
+                    type:'GET',
+                    data:{
+                        'phoneNum':$('#sbmphone').val()
+                    },
+                  headers:{'Authorization':'Bearer '+opener.gactn}
+                })
+                // Ajaxリクエストが成功した時発動
+                .done( (data) => {
+                    $('.result').html(data);
+                    console.log(data);
+                })
+                // Ajaxリクエストが失敗した時発動
+                .fail( (data) => {
+                    $('.result').html(data);
+                    console.log(data);
+                })
+                // Ajaxリクエストが成功・失敗どちらでも発動
+                .always( (data) => {
+
+                });
+            });
 });
+
 </script>
 </body>
 </html>
