@@ -53,11 +53,11 @@
             // sbmbtn button click
             $('#sbmbtn').on('click',function(){
                 $.ajax({
-                    url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
-                    type:'GET',
+                   /* url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
+                    type:'get',
                     data:{
                         'phoneNum':$('#sbmphone').val()
-                    },
+                    },*/
                   headers:{'Authorization':'Bearer '+opener.gactn}
                 })
                 // Ajaxリクエストが成功した時発動
