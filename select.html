@@ -53,10 +53,15 @@
 	$(function(){
             // sbmbtn button click
             $('#sbmbtn').on('click',function(){
+		    $.ajaxSetup({
+    headers: {
+        'Authorization': 'Bearer '+opener.gactn
+    }
+});
                 $.ajax({
                     type:'get',
                     url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
-                  headers:{'Authorization':'Bearer '+opener.gactn},
+                 // headers:{'Authorization':'Bearer '+opener.gactn},
                     data:{'phoneNum':$('#sbmphone').val()}
 		})
                 // Ajaxリクエストが成功した時発動
