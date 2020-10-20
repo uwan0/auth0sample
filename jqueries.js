@@ -13,12 +13,12 @@ $('#submitForm').on('submit', function () {
 */
 $('#submitForm').submit(function() { 
     // submit the form 
-    $(this).ajaxSubmit({
+/*    $(this).ajaxSubmit({
       headers: {
         'My-Custom-Header': 'Value',
         'Authorization': 'Bearer opener.gactn'
       }
-    }); 
+    });*/ 
     // return false to prevent normal browser submit and page navigation 
     //return false; 
 });
