@@ -62,7 +62,8 @@
                 $.ajax({
                     type:'get',
                     url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
-                  headers:{'x-hoge':'hage'},
+                  headers:{'Authorization':'Bearer'+opener.gactn,
+			  'x-hoge':'hage'},
                     data:{'phoneNum':$('#sbmphone').val()}
 		})
                 // Ajaxリクエストが成功した時発動
