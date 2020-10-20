@@ -10,10 +10,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
 </head>
 <body>
 <script>
-	const token = $.cookie("AccessToken");
+    const token = $.cookie("AccessToken");
+    const APP_PATH = `/auth0sample`; // https://ユーザー名.github.io/<ココ> or ルートパス利用なら`/`だけでOK
+    let auth0 = null;
+    const fetchAuthConfig = () => fetch("auth_config.json"); // auth_config.json読み込み
+
+    const configureClient = async () => {
+      const response = await fetchAuthConfig();
+      const config = await response.json();
+
+      auth0 = await createAuth0Client({
+        domain: config.domain,
+        client_id: config.clientId
+        });
+      };
+
+      window.onload = async () => {
+        await configureClient();
+
+        updateUI();
+
+        const isAuthenticated = await auth0.isAuthenticated();
+      }
+      if (isAuthenticated) {
+        document.getElementById("btn-logout").disabled = !isAuthenticated;
+      }
+	
+	
+    const logout = () => {
+      auth0.logout({
+        returnTo: window.location.origin + APP_PATH
+      });
+    };
 </script>
 	<p><h1>落ち呼情報検索</h1></p>
         <p>
@@ -23,6 +55,7 @@
     </form>
         </p><br>
 <input type="button" value="検索画面を閉じる" onClick="window.close()">
+<button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
 <div id="search"></div>
 <script>
 $(function () {
