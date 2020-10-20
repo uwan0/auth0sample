@@ -23,8 +23,7 @@
     </form>
         </p><br>
 <input type="button" value="検索画面を閉じる" onClick="window.close()">
-<div class="result"></div>
-    <script src="jqueries.js"></script>
+<div id="search"></div>
 <script>
 $(function () {
   $(document).on("click", "#sbmbtn", function() {
@@ -37,7 +36,7 @@ $(function () {
         'Authoricate': `Bearer ${ token} `
       },
       dataType: "json",
-      data: '{a: 1}'
+      data: '{phoneNum: $("#sbmphone").val()}'
     })
       .done((data, textStatus, jqXHR) => {
         console.log('done', jqXHR.status, data);
