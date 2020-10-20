@@ -12,17 +12,7 @@
 </head>
 <body>
 <script>
-	var gactns = opener.gactn; /*alert(gactns);*/
-	/*
-	window.addEventListener('DOMContentLoaded', function() {
-          document.getElementById(
-            "access-token"
-          ).innerHTML = gactns;
-	  document.getElementById(
-            "access-text"
-          ).innerHTML = gactns;
-        }, false);
-	*/
+	const token = $.cookie("AccessToken");
 </script>
 	<p><h1>落ち呼情報検索</h1></p>
         <p>
@@ -35,56 +25,29 @@
 <input type="button" value="検索画面を閉じる" onClick="window.close()">
 <div class="result"></div>
     <script src="jqueries.js"></script>
-<script type="text/javascript">
-/*	$(document).ready(function() {
-    $('#sbmbtn').click(function() {
-        $('#sbmForm').submit();
-    });
-});*/
-$(document).ready(function() {
-    $('#sbmbtn').click(function() {
-	$('#sbmForm').ajaxSubmit({
+<script>
+$(function () {
+  $(document).on("click", "#sbmbtn", function() {
+    $.ajax({
+      url: "https://re-delivery-prod.apigee.net/v1/operations/htmlresp",
+      type: "GET",
       headers: {
-        "Authorization": "Bearer "+ opener.gactn
-      }
-//	'success':
-  });
-    });
-});
-
-	//	$(function(){
-/*		    $.ajaxSetup({
-    headers: {
-//        'Authorization': 'Bearer '+opener.gactn
-	    'hoge':'hage'
-    }
-});*/
-/*            // sbmbtn button click
-            $('#sbmbtn').on('click',function(){
-                $.ajax({
-                    type:'get',
-                    url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
-                  headers:{'Authorization':'Bearer'+opener.gactn,
-			  'x-hoge':'hage'},
-                    data:{'phoneNum':$('#sbmphone').val()}
-		})
-                // Ajaxリクエストが成功した時発動
-                .done( (data) => {
-                    $('.result').html(data);
-                    console.log(data);
-                })
-                // Ajaxリクエストが失敗した時発動
-                .fail( (data) => {
-                    $('.result').html(data);
-                    console.log(data);
-                })
-                // Ajaxリクエストが成功・失敗どちらでも発動
-                .always( (data) => {
-
-                });
-            });
-});
-*/
+        'X-HTTP-Method-Override': 'GET',
+        'Content-Type': 'application/json',
+        'Authoricate': `Bearer ${ token} `
+      },
+      dataType: "json",
+      data: '{a: 1}'
+    })
+      .done((data, textStatus, jqXHR) => {
+        console.log('done', jqXHR.status, data);
+        $("#search").html(data);
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
+        console.log('fail', jqXHR.status);
+      })
+  })
+})
 </script>
 </body>
 </html>
