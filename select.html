@@ -51,13 +51,13 @@
     });
 });*/
 	$(function(){
-            // sbmbtn button click
-            $('#sbmbtn').on('click',function(){
 		    $.ajaxSetup({
     headers: {
         'Authorization': 'Bearer '+opener.gactn
     }
 });
+            // sbmbtn button click
+            $('#sbmbtn').on('click',function(){
                 $.ajax({
                     type:'get',
                     url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
