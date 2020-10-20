@@ -40,7 +40,16 @@
         $('#sbmForm').submit();
     });
 });*/
-	$(function(){
+$(document).ready(function() {
+    $('#sbmbtn').click(function() {
+	$.ajaxSubmit({
+      headers: {
+        "Authorization": "Bearer "+ opener.gactn
+      }
+  });
+    });
+});
+/*	$(function(){
             // sbmbtn button click
             $('#sbmbtn').on('click',function(){
                 $.ajax({
@@ -67,7 +76,7 @@
                 });
             });
 });
-
+*/
 </script>
 </body>
 </html>
