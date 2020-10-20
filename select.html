@@ -56,8 +56,7 @@
                 $.ajax({
                     type:'get',
                     url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
-                  headers:{'Authorization':'Bearer '+opener.gactn}
-                },
+                  headers:{'Authorization':'Bearer '+opener.gactn},
                     data:{
                         'phoneNum':$('#sbmphone').val()
                     })
