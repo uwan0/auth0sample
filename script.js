@@ -42,16 +42,15 @@ window.onload = async () => {
 
 const updateUI = async () => { 
   const isAuthenticated = await auth0.isAuthenticated();
-console.log('isAuthenticated?');
+
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;
   
   // NEW - add logic to show/hide gated content after authentication
   if (isAuthenticated) {
     document.getElementById("gated-content").classList.remove("hidden");
-//console.log('isAuthenticated...');    
-//    await open("https://storages4aicc.blob.core.windows.net/cc-files/select.html?sv=2019-12-12&ss=b&srt=sco&sp=rx&se=2021-10-13T12:58:27Z&st=2020-10-13T04:58:27Z&spr=https&sig=BWkmkGpxLkon9EYXLqDdi1xibK%2FAKs0X264aAfa2ByA%3D", "_blank");
-    await window.open("https://uwan0.github.io/auth0sample/select.html");
+
+//    await window.open("https://uwan0.github.io/auth0sample/select.html");
 
     document.getElementById(
       "ipt-access-token"
@@ -59,7 +58,7 @@ console.log('isAuthenticated?');
     
     const token = await auth0.getTokenSilently();
     $.cookie("AccessToken", token);
-//    location.href = "https://uwan0.github.io/auth0sample/select.html"
+    location.href = "https://uwan0.github.io/auth0sample/select.html"
 
     document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser()
