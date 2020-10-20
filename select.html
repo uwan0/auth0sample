@@ -31,7 +31,6 @@ $(function () {
       url: "https://re-delivery-prod.apigee.net/v1/operations/htmlresp",
       type: "GET",
       headers: {
-        'X-HTTP-Method-Override': 'GET',
         'Content-Type': 'application/json',
         'Authoricate': `Bearer ${ token} `
       },
