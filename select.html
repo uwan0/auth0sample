@@ -57,10 +57,10 @@
                     type:'get',
                     url:'https://re-delivery-prod.apigee.net/v1/operations/htmlresp',
                   headers:{'Authorization':'Bearer '+opener.gactn}
-                }),
+                },
                     data:{
                         'phoneNum':$('#sbmphone').val()
-                    }
+                    })
                 // Ajaxリクエストが成功した時発動
                 .done( (data) => {
                     $('.result').html(data);
