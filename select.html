@@ -31,6 +31,7 @@ $(function () {
       url: "https://re-delivery-prod.apigee.net/v1/operations/htmlresp",
       type: "GET",
       headers: {
+	'Access-Control-Allow-Origin': 'https://uwan0.github.io'
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${ token} `
       },
