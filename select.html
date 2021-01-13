@@ -18,6 +18,7 @@
     const APP_PATH = `/auth0sample`; // https://ユーザー名.github.io/<ココ> or ルートパス利用なら`/`だけでOK
     let auth0 = null;
     const fetchAuthConfig = () => fetch("auth_config.json"); // auth_config.json読み込み
+    const authStateValue = '';
 
     const configureClient = async () => {
       const response = await fetchAuthConfig();
@@ -33,6 +34,8 @@
       await configureClient();
 
       const isAuthenticated = await auth0.isAuthenticated();
+	    authStateValue = isAuthenticated;
+	    $("#authState").html(authStateValue);
       if (isAuthenticated) {
         document.getElementById("btn-logout").disabled = !isAuthenticated;
       }
@@ -56,6 +59,7 @@
     </form>
         </p><br>
 <button id="btn-logout" disabled="false" onclick="logout()">Log out</button>
+<div id="authState"></div>
 <div id="search"></div>
 <script>
 $(function () {
