@@ -30,8 +30,8 @@
       });
     };
 
-    window.addEventListener('load', function() {
-//    window.onload = async () => {
+//    window.addEventListener('load', function() {
+    window.onload = async () => {
       await configureClient();
 
       const isAuthenticated = await auth0.isAuthenticated();
