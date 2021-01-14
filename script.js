@@ -58,7 +58,7 @@ const updateUI = async () => {
     
     const token = await auth0.getTokenSilently();
     $.cookie("AccessToken", token);
-//    location.href = "https://uwan0.github.io/auth0sample/select.html"
+    location.href = "https://uwan0.github.io/auth0sample/select.html"
 
     document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser()
