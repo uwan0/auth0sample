@@ -63,6 +63,10 @@ const updateUI = async () => {
     document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser()
     );
+    document.getElementById(
+      "ipt-isauthenticated"
+    ).innerHTML = isAuthenticated;
+
 
     //プロフ画像
     const profile = await auth0.getUser();
