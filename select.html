@@ -36,8 +36,10 @@
 
       const isAuthenticated = await auth0.isAuthenticated();
       const isAuthenticated3 = $.cookie("isAuthenticated");
+      const abcdef = "aaaaa";
 //      if (isAuthenticated) {
       if (isAuthenticated3 === "true") {
+	 abcdef = "bbbbb";
 //        document.getElementById("btn-logout").disabled = !isAuthenticated;
         document.getElementById("btn-logout").disabled = false;
       }
@@ -48,6 +50,9 @@
 	    document.getElementById(
       "ipt-isauthenticated3"
     ).innerHTML = isAuthenticated3;
+	    document.getElementById(
+      "ipt-pass"
+    ).innerHTML = abcdef;
     };
 		
     const logout = () => {
@@ -62,7 +67,8 @@
 	<p><h1>落ち呼情報検索</h1></p>
         <p>
 <div id="ipt-isauthenticated2"></div><br>
-<div id="ipt-isauthenticated3"></div>
+<div id="ipt-isauthenticated3"></div><br>
+<div id="ipt-pass"></div>
     <form>
 	<label>電話番号：<input type="text" name="phoneNum" id="sbmphone" maxlength="11"></label>
         <input type="button" id="sbmbtn" value="検索">
