@@ -34,18 +34,18 @@
     window.onload = async () => {
       await configureClient();
 
-      const isAuthenticated = await auth0.isAuthenticated();
+//      const isAuthenticated = await auth0.isAuthenticated();
       const isAuthenticated3 = $.cookie("isAuthenticated");
       const abcdef = "aaaaa";
 //      if (isAuthenticated) {
       if (isAuthenticated3 === "true") {
-//	 abcdef = "bbbbb";
+	 abcdef = "bbbbb";
 //        document.getElementById("btn-logout").disabled = !isAuthenticated;
         document.getElementById("btn-logout").disabled = false;
       }
-	    document.getElementById(
+/*	    document.getElementById(
       "ipt-isauthenticated2"
-    ).innerHTML = isAuthenticated;
+    ).innerHTML = isAuthenticated;*/
 	    
 	    document.getElementById(
       "ipt-isauthenticated3"
@@ -66,7 +66,7 @@
 </script>
 	<p><h1>落ち呼情報検索</h1></p>
         <p>
-<div id="ipt-isauthenticated2"></div><br>
+<!--div id="ipt-isauthenticated2"></div--><br>
 <div id="ipt-isauthenticated3"></div><br>
 <div id="ipt-pass"></div>
     <form>
