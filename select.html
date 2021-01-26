@@ -37,8 +37,9 @@
       const isAuthenticated = await auth0.isAuthenticated();
       const isAuthenticated3 = $.cookie("isAuthenticated");
 //      if (isAuthenticated) {
-      if (isAuthenticated3) {
-        document.getElementById("btn-logout").disabled = !isAuthenticated;
+      if (isAuthenticated3 === "true") {
+//        document.getElementById("btn-logout").disabled = !isAuthenticated;
+        document.getElementById("btn-logout").disabled = false;
       }
 	    document.getElementById(
       "ipt-isauthenticated2"
