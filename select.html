@@ -41,6 +41,10 @@
 	    document.getElementById(
       "ipt-isauthenticated2"
     ).innerHTML = isAuthenticated;
+	    const isAuthenticated3 = $.cookie("isAuthenticated");
+	    document.getElementById(
+      "ipt-isauthenticated3"
+    ).innerHTML = isAuthenticated3;
     };
 		
     const logout = () => {
@@ -54,7 +58,8 @@
 </script>
 	<p><h1>落ち呼情報検索</h1></p>
         <p>
-<div id="ipt-isauthenticated2"></div>
+<div id="ipt-isauthenticated2"></div><br>
+<div id="ipt-isauthenticated3"></div>
     <form>
 	<label>電話番号：<input type="text" name="phoneNum" id="sbmphone" maxlength="11"></label>
         <input type="button" id="sbmbtn" value="検索">
