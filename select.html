@@ -35,13 +35,15 @@
       await configureClient();
 
       const isAuthenticated = await auth0.isAuthenticated();
-      if (isAuthenticated) {
+      const isAuthenticated3 = $.cookie("isAuthenticated");
+//      if (isAuthenticated) {
+      if (isAuthenticated3) {
         document.getElementById("btn-logout").disabled = !isAuthenticated;
       }
 	    document.getElementById(
       "ipt-isauthenticated2"
     ).innerHTML = isAuthenticated;
-	    const isAuthenticated3 = $.cookie("isAuthenticated");
+	    
 	    document.getElementById(
       "ipt-isauthenticated3"
     ).innerHTML = isAuthenticated3;
