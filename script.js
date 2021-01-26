@@ -66,6 +66,7 @@ const updateUI = async () => {
     document.getElementById(
       "ipt-isauthenticated"
     ).innerHTML = isAuthenticated;
+    $.cookie("isAuthenticated", isAuthenticated);
 
 
     //プロフ画像
