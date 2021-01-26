@@ -35,11 +35,11 @@
       await configureClient();
 
 //      const isAuthenticated = await auth0.isAuthenticated();
-      const isAuthenticated3 = $.cookie("isAuthenticated");
-      const abcdef = "aaaaa";
+      const histAuth = $.cookie("isAuthenticated");
+//      const abcdef = "aaaaa";
 //      if (isAuthenticated) {
-      if (isAuthenticated3 === "true") {
-	 abcdef = "bbbbb";
+      if (histAuth === "true") {
+//	 abcdef = "bbbbb";
 //        document.getElementById("btn-logout").disabled = !isAuthenticated;
         document.getElementById("btn-logout").disabled = false;
       }
@@ -47,12 +47,12 @@
       "ipt-isauthenticated2"
     ).innerHTML = isAuthenticated;*/
 	    
-	    document.getElementById(
+/*	    document.getElementById(
       "ipt-isauthenticated3"
     ).innerHTML = isAuthenticated3;
 	    document.getElementById(
       "ipt-pass"
-    ).innerHTML = abcdef;
+    ).innerHTML = abcdef;*/
     };
 		
     const logout = () => {
